@@ -30886,6 +30886,14 @@ html, body {
   height: 100%;
 }
 
+.border-green-padi {
+  border-color: #32B687;
+}
+
+.bg-green-padi {
+  background: #32B687;
+}
+
 .full-height {
   height: 100%;
 }
