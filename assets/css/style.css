@@ -30886,6 +30886,16 @@ html, body {
   height: 100%;
 }
 
+.card-dashboard {
+  padding: 0;
+  position: relative;
+  background-image: url("/assets/img/bd-dashboard1.svg");
+  background-position: bottom ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 140px;
+}
+
 .border-green-padi {
   border-color: #32B687;
 }

@@ -43,6 +43,10 @@ module.exports = {
         'gray-dark': '#273444',
         'gray': '#8492a6',
         'gray-light': '#d3dce6',
+        'process-prev': '#FFF0CC',
+        'verifikasi': '#E2FFEF',
+        'revisi': '#FFD9E7',
+        'draft': '#EFEFF6',
         'blue-shade': {
           50: '#F7F7FC',
           100: '#F5F5F9',
