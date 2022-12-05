@@ -8,122 +8,14 @@
 	<link href="./assets/img/favicon.ico" rel="shortcut icon"/>
 	<link href="./assets/img/apple-icon.png" rel="apple-touch-icon" sizes="76x76"/>
 	<title>PadiPlace dev</title>
-	<link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+	<link href="../../assets/css/style.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/alpinejs@2.5.0/dist/alpine.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-	<script type="text/javascript">
-		Number.prototype.comma_formatter = function() {
-			return this.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-		}
-		
-		let chartData = function(){
-			return {
-				date: 'today',
-				options: [
-					{
-						label: 'Today',
-						value: 'today',
-					},
-					{
-						label: 'Last 7 Days',
-						value: '7days',
-					},
-					{
-						label: 'Last 30 Days',
-						value: '30days',
-					},
-					{
-						label: 'Last 6 Months',
-						value: '6months',
-					},
-					{
-						label: 'This Year',
-						value: 'year',
-					},
-				],
-				showDropdown: false,
-				selectedOption: 0,
-				selectOption: function(index){
-					this.selectedOption = index;
-					this.date = this.options[index].value;
-					this.renderChart();
-				},
-				data: null,
-				fetch: function(){
-					fetch('https://cdn.jsdelivr.net/gh/swindon/fake-api@master/tailwindAlpineJsChartJsEx1.json')
-							.then(res => res.json())
-							.then(res => {
-								this.data = res.dates;
-								this.renderChart();
-							})
-				},
-				renderChart: function(){
-					let c = false;
-					
-					Chart.helpers.each(Chart.instances, function(instance) {
-						if (instance.chart.canvas.id == 'chart') {
-							c = instance;
-						}
-					});
-					
-					if(c) {
-						c.destroy();
-					}
-					
-					let ctx = document.getElementById('chart').getContext('2d');
-					
-					let chart = new Chart(ctx, {
-						type: "line",
-						data: {
-							labels: this.data[this.date].data.labels,
-							datasets: [
-								{
-									label: "Income",
-									backgroundColor: "rgba(50, 182, 135, 0.2)",
-									borderColor: "rgba(50, 182, 135, 1)",
-									pointBackgroundColor: "rgba(50, 182, 135, 1)",
-									data: this.data[this.date].data.income,
-								},
-								{
-									label: "Expenses",
-									backgroundColor: "rgba(50, 182, 135, 0.2)",
-									borderColor: "rgba(50, 182, 135, 1)",
-									pointBackgroundColor: "rgba(50, 182, 135, 1)",
-									data: this.data[this.date].data.expenses,
-								},
-							],
-						},
-						layout: {
-							padding: {
-								right: 10
-							}
-						},
-						options: {
-							scales: {
-								yAxes: [{
-									gridLines: {
-										display: false
-									},
-									ticks: {
-										callback: function(value,index,array) {
-											return value > 1000 ? ((value < 1000000) ? value/1000 + 'K' : value/1000000 + 'M') : value;
-										}
-									}
-								}]
-							}
-						}
-					});
-				}
-			}
-		}
-	</script>
-
-
 </head>
 
 <body class="text-gray-800 antialiased">
 <main>
-	<div class="flex  bg-gray-100">
+	<div class="flex">
 		<div class="relative bg-white shadow-lg">
 			<div class="flex flex-col sm:flex-row sm:justify-around">
 				<div class="w-72 h-screen">
@@ -148,7 +40,7 @@
 						</div>
 					</div>
 					<nav class="mt-10 px-6 ">
-						<a class="hover:text-gray-800 bg-green-50  hover:bg-green-50 text-green-500 flex items-center p-2 my-6 transition-colors duration-200  text-gray-800  rounded-full bg-"
+						<a class="hover:text-gray-800   hover:bg-green-50  flex items-center p-2 my-6 transition-colors duration-200  text-gray-800  rounded-full bg-"
 						   href="#">
 							<svg class="m-auto" fill="currentColor" height="20" viewBox="0 0 2048 1792" width="20"
 							     xmlns="http://www.w3.org/2000/svg">
@@ -161,7 +53,7 @@
 							<span class="flex-grow text-right">
 							</span>
 						</a>
-						<a class="hover:text-gray-800 active:bg-green-100 hover:bg-green-100 flex items-center p-2 my-6 transition-colors duration-200  text-gray-800  rounded-lg bg-"
+						<a class="bg-green-50 active:bg-green-50 hover:bg-green-150 flex items-center p-2 my-6 transition-colors duration-200  text-green-500  rounded-lg bg-"
 						   href="#">
 							<svg class="m-auto" fill="currentColor" height="20" viewBox="0 0 2048 1792" width="20"
 							     xmlns="http://www.w3.org/2000/svg">
@@ -214,244 +106,159 @@
 							</span>
 						</a>
 					</nav>
+					<-->
 				</div>
 			</div>
 		</div>
 		<section class="w-full">
-			<div class="px-10 py-10 w-full">
-				<div class="text-3xl mb-6 font-bold">
-					Dashboard
+			<div class="px-10 py-5 w-full">
+				<div class="flex pb-2 text-md">
+					<a href="#" class="mr-2">dashboard</a>
+					<a href="#" class="mr-2"> > </a>
+					<a href="#" class="mr-2 text-gray-400">Produk</a>
 				</div>
-				<div>
-					<div class="grid grid-cols-3 gap-5">
-						<div class="shadow-padi bg-white rounded-xl card-dashboard">
-							<div class="px-8 h-36 content-center grid grid-cols-6 gap-4">
-								<div class="col-start-8 col-end-1">
-									<div>Kesehatan Toko anda</div>
-									<div class="text-green-500 font-semibold text-4xl">80%</div>
-								</div>
-								<div class="col-end-10 col-span-2 justify-between">
-									<div class="py-4">
-										<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<rect width="40" height="40" rx="10" fill="#F3558E"/>
-											<path d="M20 28C20 28 11 22.9875 11 16.9723C11 10.9572 18 10.456 20 15.1622C22 10.456 29 10.9572 29 16.9723C29 22.9875 20 28 20 28Z" fill="white"/>
-										</svg>
-									</div>
-								</div>
-							</div>
+				<div class="text-3xl mb-6 font-semibold">
+					Produk <span class="bg-green-100 ml-10 rounded-xl p-2">08</span>
+				</div>
+				<div class="w-full">
+					<div class="flex w-full gap-x-5 justify-between">
+						<div class="w-1/4">
+								<select class="
+                    block
+	                  w-full
+	                  rounded-xl
+	                  bg-gray-100
+	                  border-none
+	                  focus:border-gray-100 focus:bg-gray-50 focus:ring-1 focus:ring-gray-100">
+									<option>Semua Status</option>
+									<option>Wedding</option>
+									<option>Birthday</option>
+									<option>Other</option>
+								</select>
+							</label>
 						</div>
-						<div class="shadow-padi bg-white rounded-xl card-dashboard" >
-							<div class="px-8 h-36 content-center grid grid-cols-6 gap-4">
-								<div class="col-start-8 col-end-1">
-									<div>Total Transaksi</div>
-									<div class=" font-semibold text-4xl">100</div>
-								</div>
-								<div class="col-end-10 col-span-2 justify-between">
-									<div class="py-4">
-										<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<rect width="40" height="40" rx="10" fill="#32B687"/>
-											<path d="M25 28C25 27.4477 25.4477 27 26 27C26.5523 27 27 27.4477 27 28C27 28.5523 26.5523 29 26 29C25.4477 29 25 28.5523 25 28Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-											<path d="M15 28C15 27.4477 15.4477 27 16 27C16.5523 27 17 27.4477 17 28C17 28.5523 16.5523 29 16 29C15.4477 29 15 28.5523 15 28Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-											<path d="M11 11H11.7677C12.25 11 12.6635 11.3442 12.7511 11.8185L15 24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-											<path d="M27.7429 14H13.5L15 24H25.8968C26.3624 24 26.7665 23.6786 26.8712 23.2249L28.7173 15.2249C28.8619 14.5982 28.386 14 27.7429 14Z" fill="white" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-										</svg>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="shadow-padi bg-white rounded-xl card-dashboard">
-							<div class="px-8 h-36 content-center grid grid-cols-6 gap-5">
-								<div class="col-start-8 col-end-1">
-									<div>Saldo Anda</div>
-									<div class=" font-semibold text-4xl">Rp 1.000.000</div>
-								</div>
-								<div class="col-end-10 col-span-2 justify-between">
-									<div class="py-4">
-										<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<rect width="40" height="40" rx="10" fill="#FBBE34"/>
-											<path d="M12.4766 12.8727H27.4766C27.6518 12.8726 27.8268 12.8837 28.0006 12.906C27.9417 12.4924 27.7997 12.0951 27.583 11.7379C27.3664 11.3808 27.0797 11.0712 26.7402 10.8278C26.4007 10.5844 26.0154 10.4124 25.6076 10.3219C25.1998 10.2315 24.7779 10.2246 24.3674 10.3016L12.0313 12.4077H12.0172C11.2429 12.5558 10.5543 12.9939 10.092 13.6325C10.7884 13.1372 11.622 12.8716 12.4766 12.8727Z" fill="white"/>
-											<path d="M27.4766 13.9998H12.4766C11.6812 14.0006 10.9186 14.317 10.3562 14.8794C9.79378 15.4418 9.47743 16.2044 9.47656 16.9998V25.9998C9.47743 26.7951 9.79378 27.5577 10.3562 28.1201C10.9186 28.6825 11.6812 28.9989 12.4766 28.9998H27.4766C28.2719 28.9989 29.0345 28.6825 29.5969 28.1201C30.1593 27.5577 30.4757 26.7951 30.4766 25.9998V16.9998C30.4757 16.2044 30.1593 15.4418 29.5969 14.8794C29.0345 14.317 28.2719 14.0006 27.4766 13.9998ZM25.25 22.9998C24.9533 22.9998 24.6633 22.9118 24.4166 22.747C24.17 22.5821 23.9777 22.3479 23.8642 22.0738C23.7506 21.7997 23.7209 21.4981 23.7788 21.2071C23.8367 20.9161 23.9796 20.6489 24.1893 20.4391C24.3991 20.2293 24.6664 20.0865 24.9574 20.0286C25.2483 19.9707 25.5499 20.0004 25.824 20.1139C26.0981 20.2275 26.3324 20.4197 26.4972 20.6664C26.662 20.9131 26.75 21.2031 26.75 21.4998C26.75 21.8976 26.592 22.2791 26.3107 22.5604C26.0293 22.8417 25.6478 22.9998 25.25 22.9998Z" fill="white"/>
-											<path d="M9.5 20.1614V15.4973C9.5 14.4815 10.0625 12.7786 12.0148 12.4097C13.6719 12.0989 15.3125 12.0989 15.3125 12.0989C15.3125 12.0989 16.3906 12.8489 15.5 12.8489C14.6094 12.8489 14.6328 13.9973 15.5 13.9973C16.3672 13.9973 15.5 15.0989 15.5 15.0989L12.0078 19.0598L9.5 20.1614Z" fill="white"/>
-										</svg>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="shadow-padi bg-white rounded-xl col-span-2 card-dashboard-panjang">
+						<div class="w-1/2">
 							<div>
-								<div class="grid grid-cols-3 px-8 h-36 content-center divide-x">
-									<div class=" text-center">
-										<div class="text-lg mb-3">
-											Pesanan Diproses
-										</div>
-										<div class=" text-4xl">
-											<span class="font-semibold text-green-500">10</span> Transaksi
-										</div>
-									</div>
-									<div class=" text-center">
-										<div class="text-lg mb-3">
-											Pesanan Dikirim
-										</div>
-										<div class=" text-4xl">
-											<span class="font-semibold text-green-500">10</span> Transaksi
-										</div>
-									</div>
-									<div class=" text-center">
-										<div class="text-lg mb-3">
-											Pesanan Sampai
-										</div>
-										<div class=" text-4xl">
-											<span class="font-semibold text-green-500">15</span> Transaksi
-										</div>
-									</div>
-								</div>
+								<input type="search" class="
+					        block
+                  w-full
+                  rounded-xl
+                  bg-gray-100
+                  border-none
+                  focus:border-gray-100 focus:bg-gray-50 focus:ring-1 focus:ring-gray-100"
+								/>
 							</div>
 						</div>
-						<div class="shadow-padi bg-white rounded-xl card-dashboard">
+						<div class="w-1/4 text-right">
 							<div>
-								<div class="px-8 h-36 content-center grid grid-cols-6 gap-5">
-									<div class="col-start-8 col-end-1">
-										<div>Pesanan Baru</div>
-										<div class=" font-semibold text-4xl text-red-500">02</div>
-									</div>
-									<div class="col-end-10 col-span-2 justify-between">
-										<div class="py-4">
-											<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<rect width="40" height="40" rx="10" fill="#FF4545"/>
-												<path d="M17 25V24C16.4477 24 16 24.4477 16 25H17ZM23 25H24C24 24.4477 23.5523 24 23 24V25ZM17 26H23V24H17V26ZM22 25V26H24V25H22ZM18 26V25H16V26H18ZM20 28C18.8954 28 18 27.1046 18 26H16C16 28.2091 17.7909 30 20 30V28ZM22 26C22 27.1046 21.1046 28 20 28V30C22.2091 30 24 28.2091 24 26H22Z" fill="white"/>
-												<path d="M13 25H27C27.5523 25 28 24.5523 28 24V23.4142C28 23.149 27.8946 22.8947 27.7071 22.7071L27.1963 22.1963C27.0706 22.0706 27 21.9001 27 21.7224V18C27 14.134 23.866 11 20 11C16.134 11 13 14.134 13 18V21.7224C13 21.9002 12.9294 22.0706 12.8037 22.1963L12.2929 22.7071C12.1054 22.8947 12 23.149 12 23.4142V24C12 24.5523 12.4477 25 13 25Z" fill="white"/>
-												<path d="M12.2929 22.7071L11.5858 22L11.5858 22L12.2929 22.7071ZM12.8037 22.1963L13.5108 22.9034L13.5108 22.9034L12.8037 22.1963ZM27.1963 22.1963L27.9034 21.4892L27.9034 21.4892L27.1963 22.1963ZM27.7071 22.7071L28.4142 22L28.4142 22L27.7071 22.7071ZM20 11L20 12L20 11ZM27 24H13V26H27V24ZM13 24V23.4142H11V24H13ZM13 23.4142L13.5108 22.9034L12.0966 21.4892L11.5858 22L13 23.4142ZM14 21.7224V18H12V21.7224H14ZM26 18V21.7224H28V18H26ZM26.4892 22.9034L27 23.4142L28.4142 22L27.9034 21.4892L26.4892 22.9034ZM27 23.4142V24H29V23.4142H27ZM27 23.4142L27 23.4142H29C29 22.8838 28.7893 22.3751 28.4142 22L27 23.4142ZM26 21.7224C26 22.1653 26.176 22.5901 26.4892 22.9034L27.9034 21.4892C27.9653 21.551 28 21.6349 28 21.7224H26ZM28 18C28 13.5817 24.4183 9.99999 20 10L20 12C23.3137 12 26 14.6863 26 18H28ZM14 18C14 14.6863 16.6863 12 20 12L20 10C15.5817 10 12 13.5817 12 18H14ZM13.5108 22.9034C13.824 22.5902 14 22.1654 14 21.7224H12C12 21.635 12.0348 21.5511 12.0966 21.4892L13.5108 22.9034ZM13 23.4142H13L11.5858 22C11.2107 22.3751 11 22.8838 11 23.4142H13ZM13 24H11C11 25.1046 11.8954 26 13 26V24ZM27 26C28.1046 26 29 25.1046 29 24H27V26Z" fill="white"/>
-											</svg>
-										</div>
-									</div>
-								</div>
+								<button class="px-10 text-white py-2 rounded-full bg-yellow-400">
+									Tambah produk
+								</button>
 							</div>
 						</div>
-						<div class="shadow-padi bg-white rounded-xl col-span-2 card-dashboard-panjang">
-							<div class="grafik" id="grafik">
-								<div class=" flex items-center justify-center px-5 py-5">
-									<div class="w-full" x-data="{chartData:chartData()}" x-init="chartData.fetch()">
-										<div class="flex px-1">
-											<div class="flex">
-												<div class="">
-													<div class="">
-														<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-															<rect width="40" height="40" rx="10" fill="#FBBE34"/>
-															<path d="M12.4766 12.8727H27.4766C27.6518 12.8726 27.8268 12.8837 28.0006 12.906C27.9417 12.4924 27.7997 12.0951 27.583 11.7379C27.3664 11.3808 27.0797 11.0712 26.7402 10.8278C26.4007 10.5844 26.0154 10.4124 25.6076 10.3219C25.1998 10.2315 24.7779 10.2246 24.3674 10.3016L12.0313 12.4077H12.0172C11.2429 12.5558 10.5543 12.9939 10.092 13.6325C10.7884 13.1372 11.622 12.8716 12.4766 12.8727Z" fill="white"/>
-															<path d="M27.4766 13.9998H12.4766C11.6812 14.0006 10.9186 14.317 10.3562 14.8794C9.79378 15.4418 9.47743 16.2044 9.47656 16.9998V25.9998C9.47743 26.7951 9.79378 27.5577 10.3562 28.1201C10.9186 28.6825 11.6812 28.9989 12.4766 28.9998H27.4766C28.2719 28.9989 29.0345 28.6825 29.5969 28.1201C30.1593 27.5577 30.4757 26.7951 30.4766 25.9998V16.9998C30.4757 16.2044 30.1593 15.4418 29.5969 14.8794C29.0345 14.317 28.2719 14.0006 27.4766 13.9998ZM25.25 22.9998C24.9533 22.9998 24.6633 22.9118 24.4166 22.747C24.17 22.5821 23.9777 22.3479 23.8642 22.0738C23.7506 21.7997 23.7209 21.4981 23.7788 21.2071C23.8367 20.9161 23.9796 20.6489 24.1893 20.4391C24.3991 20.2293 24.6664 20.0865 24.9574 20.0286C25.2483 19.9707 25.5499 20.0004 25.824 20.1139C26.0981 20.2275 26.3324 20.4197 26.4972 20.6664C26.662 20.9131 26.75 21.2031 26.75 21.4998C26.75 21.8976 26.592 22.2791 26.3107 22.5604C26.0293 22.8417 25.6478 22.9998 25.25 22.9998Z" fill="white"/>
-															<path d="M9.5 20.1614V15.4973C9.5 14.4815 10.0625 12.7786 12.0148 12.4097C13.6719 12.0989 15.3125 12.0989 15.3125 12.0989C15.3125 12.0989 16.3906 12.8489 15.5 12.8489C14.6094 12.8489 14.6328 13.9973 15.5 13.9973C16.3672 13.9973 15.5 15.0989 15.5 15.0989L12.0078 19.0598L9.5 20.1614Z" fill="white"/>
-														</svg>
-													</div>
-												</div>
-												<div class="ml-2">
-													<div class="text-sm -mb-1">Total penjualan</div>
-													<h4 class="text-2xl text-black font-semibold leading-tight inline-block mr-2" x-text="'$'+(chartData.data?chartData.data[chartData.date].total.comma_formatter():0)">0</h4>
-												</div>
-											</div>
-											<div class="flex flex-wrap py-2 ml-1">
-												<div class="inline-block font-semibold text-2xl " :class="chartData.data&&chartData.data[chartData.date].upDown<0?'text-red-500':'text-green-500'"><span x-text="chartData.data&&chartData.data[chartData.date].upDown<0?'▼':'▲'">0</span> <span x-text="chartData.data?chartData.data[chartData.date].upDown:0">0</span>%</div>
-											</div>
-										</div>
-										<div>
-											<canvas id="chart" class="w-full"></canvas>
-										</div>
-									</div>
-								</div>
+					</div>
+				</div>
+				<div class="py-5">
+					<div class="overflow-x-auto relative sm:rounded-lg">
+						<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+							<thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+							<tr>
+								<th scope="col" class="p-4">
+									No
+								</th>
+								<th  style="width: 20%" class="py-3 px-6">
+									Nama Produk
+								</th>
+								<th style="width: 12%" class="py-3 px-6">
+									Kategory
+								</th>
+								<th scope="col" class="py-3 px-6">
+									No. SKU
+								</th>
+								<th scope="col" class="py-3 px-6">
+									Stok
+								</th>
+								<th scope="col" class="py-3 px-6">
+									Tanggal Verifikasi
+								</th>
+								<th scope="col" class="py-3 px-6">
+									Status
+								</th>
+								<th scope="col" class="py-3 px-6">
+									Publish
+								</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+								<td class="p-4 w-4">
+									No
+								</td>
+								<td style="width: 20%" class="py-3 px-6">
+									Apple MacBook Pro 17" 	Apple MacBook Pro 17"	Apple MacBook Pro 17"
+								</td>
+								<td style="width: 12%" class="py-4 px-6">
+									Sliver
+								</td>
+								<td class="py-4 px-6">
+									Sliver
+								</td>
+								<td class="py-4 px-6">
+									Sliver
+								</td>
+								<td class="py-4 px-6">
+									Laptop
+								</td>
+								<td class="py-4 px-6">
+									$2999
+								</td>
+								<td class="py-4 px-6">
+									<a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+								</td>
+							</tr>
 							
-							</div>
-						</div>
-						<div class="mb-4 ">
-							<div class="shadow-padi bg-white rounded-xl card-dashboard-biru mb-6">
-								<div class="px-8 h-32 content-center grid grid-cols-6 gap-5">
-									<div class="col-start-8 col-end-1">
-										<div>Total Produk Terpublish</div>
-										<div class="text-4xl"><span class="font-semibold">100</span> Produk</div>
-									</div>
-									<div class="col-end-10 col-span-2 justify-between">
-										<div class="py-4">
-											<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<rect width="40" height="40" rx="10" fill="#1286E1"/>
-												<path d="M26.1528 16H13.8471C13.3583 16 12.9411 16.3534 12.8607 16.8356L11.194 26.8356C11.0924 27.4451 11.5625 28 12.1804 28H27.8195C28.4374 28 28.9075 27.4451 28.8059 26.8356L27.1392 16.8356C27.0589 16.3534 26.6417 16 26.1528 16Z" fill="white"/>
-												<path d="M16 16C16 13.7909 17.7909 12 20 12C22.2091 12 24 13.7909 24 16" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-											</svg>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="shadow-padi bg-white rounded-xl card-dashboard-biru" style="height: 250px">
-								<ul class="px-8 py-5 text-lg">
-									<li class="text-gray-400 mb-1">
-										<div class="flex justify-between">
-											<div class="text-left">
-												Produk Diminati
-											</div>
-											<div class="text-right">
-												Satuan
-											</div>
-										</div>
-									</li>
-									<li class="mb-1">
-										<div class="flex justify-between">
-											<div class="text-left">
-												Pupuk NPK
-											</div>
-											<div class="text-right">
-												<span>100</span> Kg
-											</div>
-										</div>
-									</li>
-									<li class="mb-1">
-										<div class="flex justify-between">
-											<div class="text-left">
-												Pupuk Organik
-											</div>
-											<div class="text-right">
-												<span>100</span> Kg
-											</div>
-										</div>
-									</li>
-									<li class="mb-1">
-										<div class="flex justify-between">
-											<div class="text-left">
-												Pupuk NPK Phoska
-											</div>
-											<div class="text-right">
-												<span>100</span> Kg
-											</div>
-										</div>
-									</li>
-									<li class="mb-1">
-										<div class="flex justify-between">
-											<div class="text-left">
-												Semprot Hama
-											</div>
-											<div class="text-right">
-												<span>100</span> Kg
-											</div>
-										</div>
-									</li>
-									<li class="mb-1">
-										<div class="flex justify-between">
-											<div class="text-left">
-												Pupuk Jagung
-											</div>
-											<div class="text-right">
-												<span>100</span> Kg
-											</div>
-										</div>
-									</li>
-									
-									<li class="mb-1">
-										<div class="flex justify-between">
-											<a href="#" class="text-green-500">
-												Lihat Produk
-											</a>
-										</div>
-									</li>
-								
-								</ul>
-							</div>
-						</div>
+							</tbody>
+						</table>
+						<nav class="flex justify-between items-center py-4 px-5" aria-label="Table navigation">
+							<span class="text-sm font-normal text-gray-500 dark:text-gray-400">
+								Showing
+								<span class="font-semibold text-gray-900 dark:text-white">
+									1-10
+								</span> of
+								<span class="font-semibold text-gray-900 dark:text-white">
+									1000
+								</span>
+							</span>
+							<ul class="inline-flex items-center ">
+								<li>
+									<a href="#" class="block py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+										<span class="sr-only">Previous</span>
+										<svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+								</li>
+								<li>
+									<a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+								</li>
+								<li>
+									<a href="#" aria-current="page" class="z-10 py-2 px-3 leading-tight text-blue-600 bg-blue-50 border border-blue-300 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+								</li>
+								<li>
+									<a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">...</a>
+								</li>
+								<li>
+									<a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">100</a>
+								</li>
+								<li>
+									<a href="#" class="block py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+										<span class="sr-only">Next</span>
+										<svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+									</a>
+								</li>
+							</ul>
+						</nav>
 					</div>
 				</div>
 		</section>
