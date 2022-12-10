@@ -16,7 +16,7 @@
 <body class="text-gray-800 antialiased">
 <main>
 	<div class="flex">
-		<div class="relative bg-white shadow-lg">
+		<div class="fixed bg-white shadow-lg">
 			<div class="flex flex-col sm:flex-row sm:justify-around">
 				<div class="w-72 h-screen">
 					<div class="flex items-center justify-start mx-6 my-5">
@@ -109,9 +109,9 @@
 				</div>
 			</div>
 		</div>
-		<section class="w-full">
-			<div class="py-5 w-full">
-				<div class="px-10">
+		<section class="w-full ml-72">
+			<div class="py-5 w-full mb-32">
+				<div class="pl-10 pr-36">
 					<div class="flex  pb-2 text-sm">
 						<a href="#" class="mr-2">dashboard</a>
 						<a href="#" class="mr-2"> > </a>
@@ -123,8 +123,8 @@
 						Tambah Produk
 					</div>
 				</div>
-				<div class="w-full">
-					<div class="flex px-10 gap-5 w-full">
+				<div class="w-full pr-36">
+					<div class="flex pl-10 gap-5 w-full">
 						<div class="w-4/5 border-gray-100 border rounded-xl bg-white shadow-padi">
 							<div class="p-5">
 							<div>
@@ -266,21 +266,30 @@
 						</div>
 					</div>
 					<div class="relative w-full">
-						<div class="flex border-2 border-gray-100 py-1 w-full fixed bottom-0 px-10" style="box-shadow: -4px -4px 8px rgba(161, 160, 190, 0.13);">
-							<div class="w-2/4 py-3">
-								<div class="w-1/4">
-									<button class="w-full py-2 font-semibold  rounded-full border ring ring-red-300 text-red-500">
+						<div class="
+								flex border-2 
+							bg-white 
+							border-gray-100 
+								py-1 w-full 
+								fixed 
+								bottom-0 
+								pl-10 
+								pr-20" 
+								style="box-shadow: -4px -4px 8px rgba(161, 160, 190, 0.13);">
+							<div class="w-1/4 py-3">
+								<div class="">
+									<button class="w-36 py-2 font-semibold  rounded-full  border-2 border-red-300 text-red-500">
 										Batal
 									</button>
 								</div>
 							</div>
-							<div class="w-1/4 py-3">
+							<div class="w-2/4 py-3">
 								<div class="text-left">
-									<div class="flex justify-center gap-6">
-										<button class="w-full py-2  rounded-full border  font-semibold text-green-600 ring-1 ring-green-400 bg-white">
+									<div class="flex justify-end gap-4 mr-10">
+										<button class=" w-36 py-2  rounded-full border  font-semibold text-green-600 ring-1 ring-green-400 bg-white">
 											<span>Simpan ke draft</span>
 										</button>
-										<button class="w-full py-2  rounded-full border font-semibold  text-white bg-yellow-500">
+										<button class="w-36 py-2  rounded-full border font-semibold  text-white bg-yellow-500">
 											<span>Kirim</span>
 										</button>
 									</div>
@@ -291,10 +300,9 @@
 				</div>
 		</section>
 	</div>
+
   <div class="relative hidden z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-    
     <div class="fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity"></div>
- 
     <div class="fixed inset-0 z-10 overflow-y-auto">
       <div class="flex min-h-full items-end justify-center text-center sm:items-center sm:p-0">
         <div class="relative transform overflow-hidden rounded-xl bg-white py-6 px-1  shadow-xl transition-all ">
@@ -319,9 +327,7 @@
   </div>
 
   <div class="relative hidden z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-    
     <div class="fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity"></div>
-
     <div class="fixed inset-0 z-10 overflow-y-auto">
       <div class="flex min-h-full items-end justify-center text-center sm:items-center sm:p-0">
         <div class="relative transform overflow-hidden rounded-xl bg-white py-6 px-1  shadow-xl transition-all ">
