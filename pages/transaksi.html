@@ -11,18 +11,51 @@
 	<link href="../../assets/css/style.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/alpinejs@2.5.0/dist/alpine.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+	<style>
+		.toggle-checkbox:checked {
+			@apply: right-0 border-green-400;
+			right: 0;
+			border-color: #68D391;
+		}
+		.toggle-checkbox:checked + .toggle-label {
+			@apply: bg-green-400;
+			background-color: #68D391;
+		}
+		.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+	width: 1300px!important;
+	color: #fff;
+	text-align: left;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	top: 100%;
+	left: -740px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+	</style>
 </head>
 
 <body class="text-gray-800 antialiased">
 <main>
 	<div class="flex">
-		<div class="relative bg-white shadow-lg">
+		<div class="fixed bg-white shadow-lg">
 			<div class="flex flex-col sm:flex-row sm:justify-around">
 				<div class="w-72 h-screen">
 					<div class="flex items-center justify-start mx-6 my-5">
 						<div class="text-center">
 							<img
-									class="mx-auto w-48 py-5"
+									class="mx-auto w-48 pt-5"
 									src="../assets/img/Logo Padiplace yellow-01.png"
 									alt="logo"
 							/>
@@ -34,7 +67,7 @@
 						</div>
 						<div class="text-center font-semibold my-5">
 							Media Distribusi Nasional <br>
-							<span class="text-sm font-medium -mt-2">
+							<span class="text-sm font-normal -mt-2">
 								Distributor
 							</span>
 						</div>
@@ -109,50 +142,36 @@
 				</div>
 			</div>
 		</div>
-		<section class="w-full">
+		<section class="w-full ml-72">
 			<div class="px-10 py-5 w-full">
 				<div class="flex pb-2 text-md">
 					<a href="#" class="mr-2">dashboard</a>
 					<a href="#" class="mr-2"> > </a>
-					<a href="#" class="mr-2">Produk</a>
-					<a href="#" class="mr-2"> > </a>
-					<a href="#" class="mr-2 text-gray-400">Detail Produk</a>
+					<a href="#" class="mr-2 text-gray-400">Transaksi</a>
 				</div>
 				<div class="text-3xl mb-6 font-semibold">
-					Produk <span class="bg-green-100 ml-10 rounded-xl p-2">08</span>
+					Transaksi <span class="bg-green-100 p-2 ml-3 h-5 w-5 rounded-xl">08</span>
 				</div>
 				<div class="w-full">
-					<div class="flex w-full gap-x-5 justify-between">
+					<div class="flex w-full gap-5 justify-between">
 						<div class="w-1/4">
-							<select class="
-                    block
-	                  w-full
-	                  rounded-xl
-	                  bg-gray-100
-	                  border-none
-	                  focus:border-gray-100 focus:bg-gray-50 focus:ring-1 focus:ring-gray-100">
-								<option>Semua Status</option>
-								<option>Wedding</option>
-								<option>Birthday</option>
-								<option>Other</option>
-							</select>
+							<label>
+								<select class="focus:ring-2 focus:ring-yellow-500 bg-gray-100 focus:bg-white focus:outline-none  w-full text-sm rounded-md h-10  px-4" type="text" placeholder="Cari Disini">
+									<option>Semua Status</option>
+									<option>Wedding</option>
+									<option>Birthday</option>
+									<option>Other</option>
+								</select>
 							</label>
 						</div>
 						<div class="w-1/2">
 							<div>
-								<input type="search" class="
-					        block
-                  w-full
-                  rounded-xl
-                  bg-gray-100
-                  border-none
-                  focus:border-gray-100 focus:bg-gray-50 focus:ring-1 focus:ring-gray-100"
-								/>
+								<input class="focus:ring-2 focus:ring-yellow-500 bg-gray-100 focus:bg-white focus:outline-none  w-full text-sm rounded-md h-10 px-4" type="text" placeholder="Cari Disini">
 							</div>
 						</div>
 						<div class="w-1/4 text-right">
 							<div>
-								<button class="px-10 text-white py-2 rounded-full bg-yellow-400">
+								<button type="submit" onclick="window.open('/pages/tambah-produk.html')" class="px-8 text-white py-2 font-semibold rounded-full bg-yellow-400">
 									Tambah produk
 								</button>
 							</div>
@@ -161,75 +180,266 @@
 				</div>
 				<div class="py-5">
 					<div class="overflow-x-auto relative sm:rounded-lg">
-						<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-							<thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+						<table class="w-full relative text-sm text-left text-gray-500 dark:text-gray-400">
+							<thead class="text-xs text-gray-700  bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
 							<tr>
-								<th scope="col" class="p-4">
+								<th style="width: 1%" class="p-4">
 									No
 								</th>
 								<th  style="width: 20%" class="py-3 px-6">
 									Nama Produk
 								</th>
-								<th style="width: 12%" class="py-3 px-6">
+								<th style="width: 10%" class="py-3 px-6">
 									Kategory
 								</th>
-								<th scope="col" class="py-3 px-6">
+								<th style="width: 13%" class="py-3 px-6">
 									No. SKU
 								</th>
-								<th scope="col" class="py-3 px-6">
+								<th style="width: 10%" class="py-3 px-6">
 									Stok
 								</th>
-								<th scope="col" class="py-3 px-6">
+								<th style="width: 15%" class="py-3 px-6">
 									Tanggal Verifikasi
 								</th>
-								<th scope="col" class="py-3 px-6">
+								<th style="width: 5%" class="py-3 px-6">
 									Status
 								</th>
-								<th scope="col" class="py-3 px-6">
+								<th style="width: 8%" class="py-3 px-6">
 									Publish
 								</th>
 							</tr>
 							</thead>
 							<tbody>
 							<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-								<td class="p-4 w-4">
-									No
+								<td style="width: 1%" class="py-3 px-6">
+									1
 								</td>
 								<td style="width: 20%" class="py-3 px-6">
-									Apple MacBook Pro 17" 	Apple MacBook Pro 17"	Apple MacBook Pro 17"
+									Pupuk Organik jika namanya dua baris
 								</td>
-								<td style="width: 12%" class="py-4 px-6">
-									Sliver
+								<td style="width: 10%" class="py-4 px-6">
+									Pupuk
 								</td>
-								<td class="py-4 px-6">
-									Sliver
+								<td style="width: 13%"  class="py-4 px-6">
+									001
 								</td>
-								<td class="py-4 px-6">
-									Sliver
+								<td style="width: 10%"  class="py-4 px-6">
+									0
 								</td>
-								<td class="py-4 px-6">
-									Laptop
+								<td style="width: 15"  class="py-4 px-6">
+									-
 								</td>
-								<td class="py-4 px-6">
-									$2999
+								<td style="width: 5%"  class="py-4 px-6">
+									<div class="bg-gray-100 w-32 font-semibold py-2 rounded-full px-2 text-center">
+										draft
+									</div>
 								</td>
-								<td class="py-4 px-6">
-									<a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+								<td style="width: 8%"  class="py-4 px-6">
+									<div class="flex justify-between">
+										<div class="relative inline-block py-2 w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+											<input type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+											<label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+										</div>
+										<div>
+											<button data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-hamburger" aria-expanded="false">
+												<span class="sr-only">Open main menu</span>
+												<svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+											</button>
+											<div class="hidden w-full" id="navbar-hamburger">
+												<ul class="flex flex-col mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded dark:bg-blue-600" aria-current="page">Home</a>
+													</li>
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Services</a>
+													</li>
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">Pricing</a>
+													</li>
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Contact</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
 								</td>
 							</tr>
-							
+							<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+								<td style="width: 1%" class="py-3 px-6">
+									1
+								</td>
+								<td style="width: 20%" class="py-3 px-6">
+									Pupuk Organik jika namanya dua baris
+								</td>
+								<td style="width: 10%" class="py-4 px-6">
+									Pupuk
+								</td>
+								<td style="width: 10%"  class="py-4 px-6">
+									001
+								</td>
+								<td style="width: 5%"  class="py-4 px-6">
+									<div class="flex justify-between">
+										<div>100</div>
+										<div class="tooltip">
+											<div class="font-bold">!</div>
+											<div class="tooltiptext text-center px-10 bg-red-200  text-red-500 w-full">Ketersediaan stok produk Anda 5, segera lakukan pembaharuan stok</span>
+										</div>
+									</div>
+								</td>
+								<td style="width: 13%"  class="py-4 px-6">
+									-
+								</td>
+								<td style="width: 8%"  class="py-4 px-6">
+									<div class="bg-gray-100 w-32 text-yellow-500 bg-yellow-100 py-2 font-semibold rounded-full px-2 text-center">
+										Proses Review
+									</div>
+								</td>
+								<td style="width: 8%"  class="py-4 px-6">
+									<div class="flex justify-between">
+										<div class="relative inline-block py-2 w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+											<input type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+											<label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+										</div>
+										<div>
+											<button data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-hamburger" aria-expanded="false">
+												<span class="sr-only">Open main menu</span>
+												<svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+											</button>
+											<div class="hidden w-full" id="navbar-hamburger">
+												<ul class="flex flex-col mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded dark:bg-blue-600" aria-current="page">Home</a>
+													</li>
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Services</a>
+													</li>
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">Pricing</a>
+													</li>
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Contact</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+								<td style="width: 1%" class="py-3 px-6">
+									1
+								</td>
+								<td style="width: 20%" class="py-3 px-6">
+									Pupuk Organik jika namanya dua baris
+								</td>
+								<td style="width: 10%" class="py-4 px-6">
+									Pupuk
+								</td>
+								<td style="width: 10%"  class="py-4 px-6">
+									001
+								</td>
+								<td style="width: 5%"  class="py-4 px-6">
+									0
+								</td>
+								<td style="width: 13%"  class="py-4 px-6">
+									-
+								</td>
+								<td style="width: 8%"  class="py-4 px-6">
+									<div class="bg-red-100 text-red-500 w-32 font-semibold py-2 rounded-full px-2 text-center">
+										Revisi
+									</div>
+								</td>
+								<td style="width: 8%"  class="py-4 px-6">
+									<div class="flex justify-between">
+										<div class="relative inline-block py-2 w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+											<input type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+											<label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+										</div>
+										<div>
+											<button data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-hamburger" aria-expanded="false">
+												<span class="sr-only">Open main menu</span>
+												<svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+											</button>
+											<div class="hidden w-full" id="navbar-hamburger">
+												<ul class="flex flex-col mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded dark:bg-blue-600" aria-current="page">Home</a>
+													</li>
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Services</a>
+													</li>
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">Pricing</a>
+													</li>
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Contact</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+								<td style="width: 1%" class="py-3 px-6">
+									1
+								</td>
+								<td style="width: 20%" class="py-3 px-6">
+									Pupuk Organik jika namanya dua baris
+								</td>
+								<td style="width: 10%" class="py-4 px-6">
+									Pupuk
+								</td>
+								<td style="width: 10%"  class="py-4 px-6">
+									001
+								</td>
+								<td style="width: 5%"  class="py-4 px-6">
+									<span>100</span>
+									<span></span>
+								</td>
+								<td style="width: 13%"  class="py-4 px-6">
+									-
+								</td>
+								<td style="width: 8%"  class="py-4 px-6">
+									<div class="bg-gray-100 w-32 bg-green-100 text-green-500 font-semibold py-2 rounded-full px-2 text-center">
+										Terverifikasi
+									</div>
+								</td>
+								<td style="width: 8%"  class="py-4 px-6">
+									<div class="flex justify-between">
+										<div class="relative inline-block py-2 w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+											<input type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+											<label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+										</div>
+										<div>
+											<button data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-hamburger" aria-expanded="false">
+												<span class="sr-only">Open main menu</span>
+												<svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+											</button>
+											<div class="hidden w-full" id="navbar-hamburger">
+												<ul class="flex flex-col mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded dark:bg-blue-600" aria-current="page">Home</a>
+													</li>
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Services</a>
+													</li>
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">Pricing</a>
+													</li>
+													<li>
+														<a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Contact</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
 							</tbody>
 						</table>
-						<nav class="flex justify-between items-center py-4 px-5" aria-label="Table navigation">
-							<span class="text-sm font-normal text-gray-500 dark:text-gray-400">
-								Showing
-								<span class="font-semibold text-gray-900 dark:text-white">
-									1-10
-								</span> of
-								<span class="font-semibold text-gray-900 dark:text-white">
-									1000
-								</span>
-							</span>
+						<nav class="flex justify-end items-center py-4 px-5" aria-label="Table navigation">
 							<ul class="inline-flex items-center ">
 								<li>
 									<a href="#" class="block py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
@@ -260,6 +470,46 @@
 								</li>
 							</ul>
 						</nav>
+					</div>
+					<div class="relative hidden z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    
+						<div class="fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity"></div>
+				
+						<div class="fixed inset-0 z-10 overflow-y-auto">
+							<div class="flex min-h-full items-end justify-center text-center sm:items-center sm:p-0">
+								<div class="relative max-w- transform overflow-hidden rounded-xl bg-white py-6 px-4  shadow-xl transition-all ">
+									<div class="bg-white px-4 pt-5 pb-4 ">
+										<div class="">
+											<div class="mt-3 text-center">
+												<h3 class="text-lg font-bold leading-6 text-gray-900" id="modal-title">Pembaharuan Stok</h3>
+											</div>
+											<div class="text-left mt-3 text-sm font-semibold">
+												Pupuk Organik : (SKU)
+											</div>
+											<div class="text-left mt-3 text-xs font-normal">
+												Stok Awal : 5
+											</div>
+											<div class="text-left mt-3 text-xs font-normal">
+												<label for="">Pembaharuan Stok</label>
+												<input class="w-full py-3 px-3 bg-gray-100 rounded-lg mt-2" type="text">
+											</div>
+											<div class="text-left mt-5 font-normal">
+												<div class="text-xs px-3 py-2 rounded-lg overflow-hidden bg-red-100"> Pembaharuan Stok harus sesuai dengan kondisi ketersediaan barang</div>
+											</div>
+											
+										</div>
+									</div>
+									<div class="w-full flex gap-6 justify-center px-4 py-3 text-center">
+										<button class=" py-2 w-36  rounded-full border  text-green-600 ring-1 ring-green-400 bg-white">
+											<span>Batal</span>
+										</button>
+										<button class=" py-2  w-36 rounded-full border   text-white bg-yellow-500">
+											<span>Perbaharui</span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 		</section>
