@@ -31227,6 +31227,15 @@ inputs
   height: 50px;
 }
 
+tr.border-top-tr td {
+  border-top: 1px #B4B3C7 dashed ;
+  padding-top: 10px;
+}
+
+tr.border-bottom-tr td {
+  border-bottom: 1px #B4B3C7 dashed ;
+}
+
 /*! purgecss end ignore */
 
 @media (min-width: 640px){
