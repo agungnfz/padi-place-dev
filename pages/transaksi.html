@@ -454,12 +454,13 @@
 						</nav>
 					</div>
 
-					<!-- menunggu Konfirmasi -->
-					<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+					<!-- modal pemesanan -->
+					<div class="relative z-10 hidden"  aria-labelledby="modal-title" role="dialog" aria-modal="true">
 						<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 					
 						<div class="fixed inset-0 z-10 overflow-y-auto">
 							<div class="flex min-h-full items-end justify-center p-0 text-center sm:items-center sm:p-0">
+
 								<div class="relative w-3/5 transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all ">
 									<div class="p-3">
 
@@ -658,7 +659,352 @@
 							</div>
 						</div>
 					</div>
+
+					<!-- modal kirim  pemesanan -->
+					<div class="relative z-10 hidden"  aria-labelledby="modal-title" role="dialog" aria-modal="true">
+						<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 					
+						<div class="fixed inset-0 z-10 overflow-y-auto">
+							<div class="flex min-h-full items-end justify-center p-0 text-center sm:items-center sm:p-0">
+
+								<div class="relative w-4/12 transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all ">
+									<div class="px-8">
+
+										<div class="py-5 px text-center">
+											<div class=" font-semibold text-2xl py-5">
+												Kirim Pesanan
+											</div>
+										</div>
+
+										<div>
+											<div>
+												<div class="text-left text-sm font-medium mb-2">
+													TRN/001/PDPLCE/0001
+												</div>
+												<div class="text-left text-sm mb-3">
+													Total Produk : <span>10</span>
+												</div>
+												<div class="mt-5">
+													<label for="countries" class="block mb-2 text-xs text-gray-900 dark:text-white">Kurir pengiriman</label>
+													<select id="countries" class="bg-gray-50  text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+														<option selected>Choose a country</option>
+														<option value="US">United States</option>
+														<option value="CA">Canada</option>
+														<option value="FR">France</option>
+														<option value="DE">Germany</option>
+													</select>
+												</div>
+												<div class="mt-5">
+													<label for="countries" class="block mb-2 text-xs text-gray-900 dark:text-white">Nomor Resi</label>
+													<input id="countries" class="bg-gray-50  text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+													</input>
+												</div>
+												<div class="text-xs mt-2 bg-red-100 text-red-400 p-4 rounded-xl">
+													<span class="mr-3 ">
+														!
+													</span>
+													<span>
+														Pastikan Anda mengirimkan pesanan dalam kondisi yang baik
+													</span>
+												</div>
+												
+											</div>
+										</div>
+
+									</div>
+									<div class="px-4 w-full pt-5 pb-5 px-10 flex justify-between gap-6">
+										<div class="w-1/2 text-center">
+											<button type="button" class="py-3 font-semibold w-full rounded-full bg-white text-green-400 border-2 border-green-400">Batal</button>
+										</div>
+										<div class="w-1/2 text-center">
+											<button type="button" class="py-3 font-semibold w-full rounded-full text-white bg-yellow-400">Kirim</button>
+										</div>
+									</div>
+								
+								</div>
+							</div>
+						</div>
+
+						<div class="fixed inset-0 z-10 overflow-y-auto">
+							<div class="flex min-h-full items-end justify-center p-0 text-center sm:items-center sm:p-0">
+
+								<div class="relative w-4/12 transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all ">
+									<div class="px-8">
+
+										<div class="py-5 px text-center">
+											<div class=" font-semibold text-2xl py-5">
+												Kirim Pesanan
+											</div>
+										</div>
+
+										<div>
+											<div>
+												<div class="text-left text-sm font-medium mb-2">
+													TRN/001/PDPLCE/0001
+												</div>
+												<div class="text-left text-sm mb-3">
+													Total Produk : <span>10</span>
+												</div>
+												<div class="mt-5">
+													<label for="countries" class="block mb-2 text-xs text-gray-900 dark:text-white">Kurir pengiriman</label>
+													<select id="countries" class="bg-gray-50  text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+														<option selected>Choose a country</option>
+														<option value="US">United States</option>
+														<option value="CA">Canada</option>
+														<option value="FR">France</option>
+														<option value="DE">Germany</option>
+													</select>
+												</div>
+												<div class="mt-5">
+													<label for="countries" class="block mb-2 text-xs text-gray-900 dark:text-white">Nomor Resi</label>
+													<input id="countries" class="bg-gray-50  text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+													</input>
+												</div>
+												<div class="text-xs mt-2 bg-red-100 text-red-400 p-4 rounded-xl">
+													<span class="mr-3 ">
+														!
+													</span>
+													<span>
+														Pastikan Anda mengirimkan pesanan dalam kondisi yang baik
+													</span>
+												</div>
+												
+											</div>
+										</div>
+
+									</div>
+									<div class="px-4 w-full pt-5 pb-5 px-10 flex justify-between gap-6">
+										<div class="w-1/2 text-center">
+											<button type="button" class="py-3 font-semibold w-full rounded-full bg-white text-green-400 border-2 border-green-400">Batal</button>
+										</div>
+										<div class="w-1/2 text-center">
+											<button type="button" class="py-3 font-semibold w-full rounded-full text-white bg-yellow-400">Kirim</button>
+										</div>
+									</div>
+								
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- modal  konfirmasi -->
+					<div class="relative z-10 hidden "  aria-labelledby="modal-title" role="dialog" aria-modal="true">
+						<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+					
+						<div class="fixed inset-0 z-10 overflow-y-auto">
+							<div class="flex min-h-full items-end justify-center p-0 text-center sm:items-center sm:p-0">
+
+								<div class="relative w-4/12 transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all ">
+									<div class="px-8">
+
+										<div class="py-5 px text-center">
+											<div class=" font-semibold text-2xl py-5">
+												Kirim Pesanan
+											</div>
+										</div>
+
+										<div>
+											<div>
+												<div class="text-left text-sm font-medium mb-2">
+													TRN/001/PDPLCE/0001
+												</div>
+												<div class="text-left text-sm mb-3">
+													Total Produk : <span>10</span>
+												</div>
+												<div class="mt-5">
+													<label for="countries" class="block mb-2 text-xs text-gray-900 dark:text-white">Kurir pengiriman</label>
+													<select id="countries" class="bg-gray-50  text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+														<option selected>Choose a country</option>
+														<option value="US">United States</option>
+														<option value="CA">Canada</option>
+														<option value="FR">France</option>
+														<option value="DE">Germany</option>
+													</select>
+												</div>
+												<div class="mt-5">
+													<label for="countries" class="block mb-2 text-xs text-gray-900 dark:text-white">Nomor Resi</label>
+													<input id="countries" class="bg-gray-50  text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+													</input>
+												</div>
+												<div class="text-xs mt-2 bg-red-100 text-red-400 p-4 rounded-xl">
+													<span class="mr-3 ">
+														!
+													</span>
+													<span>
+														Pastikan Anda mengirimkan pesanan dalam kondisi yang baik
+													</span>
+												</div>
+												
+											</div>
+										</div>
+
+									</div>
+									<div class="px-4 w-full pt-5 pb-5 px-10 flex justify-between gap-6">
+										<div class="w-1/2 text-center">
+											<button type="button" class="py-3 font-semibold w-full rounded-full bg-white text-green-400 border-2 border-green-400">Batal</button>
+										</div>
+										<div class="w-1/2 text-center">
+											<button type="button" class="py-3 font-semibold w-full rounded-full text-white bg-yellow-400">Kirim</button>
+										</div>
+									</div>
+								
+								</div>
+							</div>
+						</div>
+
+						<div class="fixed inset-0 z-10 overflow-y-auto">
+							<div class="flex min-h-full items-end justify-center p-0 text-center sm:items-center sm:p-0">
+
+								<div class="relative w-4/12 transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all ">
+									<div class="px-8">
+
+										<div class="py-5 px text-center">
+											<div class=" font-semibold text-2xl py-5">
+												Kirim Pesanan
+											</div>
+										</div>
+
+										<div>
+											<div>
+												<div class="text-left text-sm font-medium mb-2">
+													TRN/001/PDPLCE/0001
+												</div>
+												<div class="text-left text-sm mb-3">
+													Total Produk : <span>10</span>
+												</div>
+												<div class="mt-5">
+													<label for="countries" class="block mb-2 text-xs text-gray-900 dark:text-white">Kurir pengiriman</label>
+													<select id="countries" class="bg-gray-50  text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+														<option selected>Choose a country</option>
+														<option value="US">United States</option>
+														<option value="CA">Canada</option>
+														<option value="FR">France</option>
+														<option value="DE">Germany</option>
+													</select>
+												</div>
+												<div class="mt-5">
+													<label for="countries" class="block mb-2 text-xs text-gray-900 dark:text-white">Nomor Resi</label>
+													<input id="countries" class="bg-gray-50  text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+													</input>
+												</div>
+												<div class="text-xs mt-2 bg-red-100 text-red-400 p-4 rounded-xl">
+													<span class="mr-3 ">
+														!
+													</span>
+													<span>
+														Pastikan Anda mengirimkan pesanan dalam kondisi yang baik
+													</span>
+												</div>
+												
+											</div>
+										</div>
+
+									</div>
+									<div class="px-4 w-full pt-5 pb-5 px-10 flex justify-between gap-6">
+										<div class="w-1/2 text-center">
+											<button type="button" class="py-3 font-semibold w-full rounded-full bg-white text-green-400 border-2 border-green-400">Batal</button>
+										</div>
+										<div class="w-1/2 text-center">
+											<button type="button" class="py-3 font-semibold w-full rounded-full text-white bg-yellow-400">Kirim</button>
+										</div>
+									</div>
+								
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- modal  konfirmasi kirim -->
+					<div class="relative  z-10 "  aria-labelledby="modal-title" role="dialog" aria-modal="true">
+						<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+					
+						<div class="fixed inset-0 z-10 overflow-y-auto">
+							<div class="flex min-h-full items-end justify-center p-0 text-center sm:items-center sm:p-0">
+
+								<div class="relative w-3/12 transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all ">
+									<div class="px-8">
+
+										<div class="py-5 px text-center">
+											<div class=" font-semibold text-xl pb-2">
+												Apakah Anda yakin akan mengirimkan pesanan?
+											</div>
+										</div>
+
+									</div>
+									<div class="px-4 w-full pt-5 pb-5 px-10 flex justify-between gap-6">
+										<div class="w-1/2 text-center">
+											<button type="button" class="py-3 font-semibold w-full rounded-full bg-white text-green-400 border-2 border-green-400">Tidak</button>
+										</div>
+										<div class="w-1/2 text-center">
+											<button type="button" class="py-3 font-semibold w-full rounded-full text-white bg-yellow-400">Ya. kirim</button>
+										</div>
+									</div>
+								
+								</div>
+							</div>
+						</div>
+
+						<div class="fixed hidden inset-0 z-10 overflow-y-auto">
+							<div class="flex min-h-full items-end justify-center p-0 text-center sm:items-center sm:p-0">
+
+								<div class="relative w-4/12 transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all ">
+									<div class="px-8">
+
+										<div class="py-5 px text-center">
+											<div class=" font-semibold text-2xl py-5">
+												Kirim Pesanan
+											</div>
+										</div>
+
+										<div>
+											<div>
+												<div class="text-left text-sm font-medium mb-2">
+													TRN/001/PDPLCE/0001
+												</div>
+												<div class="text-left text-sm mb-3">
+													Total Produk : <span>10</span>
+												</div>
+												<div class="mt-5">
+													<label for="countries" class="block mb-2 text-xs text-gray-900 dark:text-white">Kurir pengiriman</label>
+													<select id="countries" class="bg-gray-50  text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+														<option selected>Choose a country</option>
+														<option value="US">United States</option>
+														<option value="CA">Canada</option>
+														<option value="FR">France</option>
+														<option value="DE">Germany</option>
+													</select>
+												</div>
+												<div class="mt-5">
+													<label for="countries" class="block mb-2 text-xs text-gray-900 dark:text-white">Nomor Resi</label>
+													<input id="countries" class="bg-gray-50  text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+													</input>
+												</div>
+												<div class="text-xs mt-2 bg-red-100 text-red-400 p-4 rounded-xl">
+													<span class="mr-3 ">
+														!
+													</span>
+													<span>
+														Pastikan Anda mengirimkan pesanan dalam kondisi yang baik
+													</span>
+												</div>
+												
+											</div>
+										</div>
+
+									</div>
+									<div class="px-4 w-full pt-5 pb-5 px-10 flex justify-between gap-6">
+										<div class="w-1/2 text-center">
+											<button type="button" class="py-3 font-semibold w-full rounded-full bg-white text-green-400 border-2 border-green-400">Batal</button>
+										</div>
+										<div class="w-1/2 text-center">
+											<button type="button" class="py-3 font-semibold w-full rounded-full text-white bg-yellow-400">Kirim</button>
+										</div>
+									</div>
+								
+								</div>
+							</div>
+						</div>
+					</div>
 
 
 				</div>
