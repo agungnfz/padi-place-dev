@@ -4,7 +4,11 @@ module.exports = {
   content: [
   ],
   theme: {
-    extend: {},
+    extend: {
+      width: {
+        '72': '279px',
+      },
+    },
     theme: {
       fontSize: {
         ssm: '12px',

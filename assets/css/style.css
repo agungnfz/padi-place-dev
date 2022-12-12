@@ -6804,7 +6804,7 @@ video {
 }
 
 .w-72{
-  width: 18rem;
+  width: 279px;
 }
 
 .w-80{
@@ -37293,7 +37293,7 @@ inputs
   }
 
   .sm\:w-72{
-    width: 18rem;
+    width: 279px;
   }
 
   .sm\:w-80{
@@ -67543,7 +67543,7 @@ inputs
   }
 
   .md\:w-72{
-    width: 18rem;
+    width: 279px;
   }
 
   .md\:w-80{
@@ -97793,7 +97793,7 @@ inputs
   }
 
   .lg\:w-72{
-    width: 18rem;
+    width: 279px;
   }
 
   .lg\:w-80{
@@ -128043,7 +128043,7 @@ inputs
   }
 
   .xl\:w-72{
-    width: 18rem;
+    width: 279px;
   }
 
   .xl\:w-80{
@@ -158293,7 +158293,7 @@ inputs
   }
 
   .\32xl\:w-72{
-    width: 18rem;
+    width: 279px;
   }
 
   .\32xl\:w-80{
@@ -182450,3 +182450,4 @@ inputs
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
+
