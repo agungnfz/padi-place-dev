@@ -8,7 +8,7 @@
 	<link href="./assets/img/favicon.ico" rel="shortcut icon"/>
 	<link href="./assets/img/apple-icon.png" rel="apple-touch-icon" sizes="76x76"/>
 	<title>PadiPlace dev</title>
-	<link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+	<link href="/../../assets/css/style.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/alpinejs@2.5.0/dist/alpine.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 	<script type="text/javascript">
@@ -117,25 +117,25 @@
 			}
 		}
 	</script>
-
-
+	
+	
 </head>
 
 <body class="text-gray-800 antialiased">
 <main>
 	<div class="flex  bg-gray-100">
-		<div class="relative bg-white shadow-lg">
+		<div class="fixed bg-white shadow-lg">
 			<div class="flex flex-col sm:flex-row sm:justify-around">
 				<div class="w-72 h-screen">
 					<div class="flex items-center justify-start mx-6 my-5">
 						<div class="text-center">
 							<img
-									class="mx-auto w-48 py-5"
+									class="mx-auto w-48 overflow-hidden "
 									src="../assets/img/logo-padiplace.png"
 									alt="logo"
 							/>
 						</div>
-					</div>
+					</div> 
 					<div class="w-full py-3 ">
 						<div class="text-white relative m-auto w-20 h-20 bg-green-padi text-3xl font-bold rounded-full flex justify-center items-center text-center p-5 shadow-xl">
 							MDN
@@ -217,10 +217,15 @@
 				</div>
 			</div>
 		</div>
-		<section class="w-full">
+		<section class="w-full pr-20 ml-72">
 			<div class="px-10 py-10 w-full">
-				<div class="text-3xl mb-6 font-bold">
-					Dashboard
+				<div class="flex pb-2 text-sm">
+					<a href="#" class="mr-2">dashboard</a>
+					<a href="#" class="mr-2"> > </a>
+					<a href="#" class="mr-2 text-gray-400">Pengaturan Akun </a>
+				</div>
+				<div class="text-2xl mb-3 font-semibold">
+					Pengaturan Akun
 				</div>
 				<div>
 					<div class="grid grid-cols-3 gap-5">
@@ -228,7 +233,7 @@
 							<div class="px-8 h-36 content-center grid grid-cols-6 gap-4">
 								<div class="col-start-8 col-end-1">
 									<div>Kesehatan Toko anda</div>
-									<div class="text-green-500 font-semibold text-4xl">80%</div>
+									<div class="text-green-500 font-semibold text-3xl">80%</div>
 								</div>
 								<div class="col-end-10 col-span-2 justify-between">
 									<div class="py-4">
@@ -244,7 +249,7 @@
 							<div class="px-8 h-36 content-center grid grid-cols-6 gap-4">
 								<div class="col-start-8 col-end-1">
 									<div>Total Transaksi</div>
-									<div class=" font-semibold text-4xl">100</div>
+									<div class=" font-semibold text-3xl">100</div>
 								</div>
 								<div class="col-end-10 col-span-2 justify-between">
 									<div class="py-4">
@@ -263,7 +268,7 @@
 							<div class="px-8 h-36 content-center grid grid-cols-6 gap-5">
 								<div class="col-start-8 col-end-1">
 									<div>Saldo Anda</div>
-									<div class=" font-semibold text-4xl">Rp 1.000.000</div>
+									<div class=" font-semibold text-3xl">Rp 1.000.000</div>
 								</div>
 								<div class="col-end-10 col-span-2 justify-between">
 									<div class="py-4">
@@ -284,7 +289,7 @@
 										<div class="text-lg mb-3">
 											Pesanan Diproses
 										</div>
-										<div class=" text-4xl">
+										<div class=" text-3xl">
 											<span class="font-semibold text-green-500">10</span> Transaksi
 										</div>
 									</div>
@@ -292,7 +297,7 @@
 										<div class="text-lg mb-3">
 											Pesanan Dikirim
 										</div>
-										<div class=" text-4xl">
+										<div class=" text-3xl">
 											<span class="font-semibold text-green-500">10</span> Transaksi
 										</div>
 									</div>
@@ -300,7 +305,7 @@
 										<div class="text-lg mb-3">
 											Pesanan Sampai
 										</div>
-										<div class=" text-4xl">
+										<div class=" text-3xl">
 											<span class="font-semibold text-green-500">15</span> Transaksi
 										</div>
 									</div>
@@ -312,7 +317,7 @@
 								<div class="px-8 h-36 content-center grid grid-cols-6 gap-5">
 									<div class="col-start-8 col-end-1">
 										<div>Pesanan Baru</div>
-										<div class=" font-semibold text-4xl text-red-500">02</div>
+										<div class=" font-semibold text-3xl text-red-500">02</div>
 									</div>
 									<div class="col-end-10 col-span-2 justify-between">
 										<div class="py-4">
@@ -349,15 +354,17 @@
 												</div>
 											</div>
 											<div class="flex flex-wrap py-2 ml-1">
-												<div class="inline-block font-semibold text-2xl " :class="chartData.data&&chartData.data[chartData.date].upDown<0?'text-red-500':'text-green-500'"><span x-text="chartData.data&&chartData.data[chartData.date].upDown<0?'▼':'▲'">0</span> <span x-text="chartData.data?chartData.data[chartData.date].upDown:0">0</span>%</div>
+												<div class="inline-block font-semibold text-2xl " :class="chartData.data&&chartData.data[chartData.date].upDown<0?'text-red-500':'text-green-500'">
+													<span x-text="chartData.data&&chartData.data[chartData.date].upDown<0?'▼':'▲'">0</span>
+													<span x-text="chartData.data?chartData.data[chartData.date].upDown:0">0</span>%</div>
 											</div>
 										</div>
 										<div>
-											<canvas id="chart" class="w-full"></canvas>
+											<canvas id="chart" style="max-height: 300px" class="w-full"></canvas>
 										</div>
 									</div>
 								</div>
-							
+								
 							</div>
 						</div>
 						<div class="mb-4 ">
@@ -365,7 +372,7 @@
 								<div class="px-8 h-32 content-center grid grid-cols-6 gap-5">
 									<div class="col-start-8 col-end-1">
 										<div>Total Produk Terpublish</div>
-										<div class="text-4xl"><span class="font-semibold">100</span> Produk</div>
+										<div class="text-3xl"><span class="font-semibold">100</span> Produk</div>
 									</div>
 									<div class="col-end-10 col-span-2 justify-between">
 										<div class="py-4">
@@ -379,14 +386,14 @@
 								</div>
 							</div>
 							<div class="shadow-padi bg-white rounded-xl card-dashboard-biru" style="height: 250px">
-								<ul class="px-8 py-5 text-lg">
+								<ul class="px-8 py-5 text-md">
 									<li class="text-gray-400 mb-1">
 										<div class="flex justify-between">
 											<div class="text-left">
-												Produk Diminati
+											Produk Diminati
 											</div>
 											<div class="text-right">
-												Satuan
+											Satuan
 											</div>
 										</div>
 									</li>
@@ -448,15 +455,15 @@
 											</a>
 										</div>
 									</li>
-								
+									
 								</ul>
 							</div>
 						</div>
-					</div>
 				</div>
+			</div>
 		</section>
 	</div>
-
+	
 </main>
 <script defer src="assets/js/main.js" type="text/javascript"></script>
 </body>
