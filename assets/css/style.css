@@ -31199,6 +31199,34 @@ inputs
   color: #27AE60;
 }
 
+.button-kios{
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  cursor: pointer;
+  width: 162px;
+  background: #FFFFFF;
+  border: 1px solid #F5F5F9;
+  box-shadow: 0px 4px 8px rgba(161, 160, 190, 0.13);
+  border-radius: 10px;
+  height: 50px;
+}
+
+#cekbok input[type=checkbox]{
+  display: none;
+}
+
+#cekbok input[type=checkbox]:checked + .button-kios{
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  cursor: pointer;
+  width: 162px;
+  background: #FFFFFF;
+  border: 1px solid #FBBE34;
+  box-shadow: 0px 8px 12px rgba(161, 160, 190, 0.25);
+  border-radius: 10px;
+  height: 50px;
+}
+
 /*! purgecss end ignore */
 
 @media (min-width: 640px){
