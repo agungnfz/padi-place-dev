@@ -29,7 +29,7 @@ html, body {
     background-size: 110%;
     /*background-position-y: .5rem;*/
     background-repeat: no-repeat;
-    min-height: 140px;
+    max-height: 130px;
 }
 
 .card-dashboard-biru {
@@ -53,7 +53,7 @@ html, body {
     background-size: 110%;
     /*background-position-y: .5rem;*/
     background-repeat: no-repeat;
-    min-height: 140px;
+    max-height: 130px;
 }
 
 .border-green-padi {
@@ -126,7 +126,7 @@ inputs
     list-style-type: none;
     color: #B4B3C7;
     text-transform: none;
-    font-size: 14px;
+    font-size: 12px;
     width: 33.33%;
     float: left;
     position: relative;
