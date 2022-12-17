@@ -20,14 +20,14 @@
 					<div>
 						<div class="text-center">
 							<img
-									class="mx-auto w-48 py-5"
+									class="mx-auto w-48"
 									src="../assets/img/logo-padiplace.png"
 									alt="logo"
 							/>
-							<h4 class="text-xl font-semibold mt-1">Lengkapi data usaha anda untuk mendaftar Padiplace</h4>
+							<h4 class="text-md font-semibold mt-1">Lengkapi data usaha anda untuk mendaftar Padiplace</h4>
 						</div>
 						<!-- multistep form -->
-						<form id="msform" class="max-w-lg">
+						<form id="msform" class="max-w-md mx-auto">
 							<!-- progressbar -->
 							<ul id="progressbar">
 								<li class="active">Identitas Usaha</li>
@@ -36,16 +36,16 @@
 							</ul>
 							<!-- fieldsets -->
 							<fieldset>
-								<span class="flex w-full gap-6 justify-between mb-5">
+								<span class=" w-full">
 									
-									<div id="cekbok" class="flex w-full justify-center">
-										<div class="w-1/2">
+									<div id="cekbok" class="flex justify-between w-full">
+										<div class="">
 											<input type="checkbox" name="rGroup" value="1" id="r1" checked="checked" />
 											<label class="button-kios" for="r1">
 												Kios
 											</label>
 										</div>
-										<div class="w-1/2">
+										<div class="">
 											<input type="checkbox" name="rGroup" value="2" id="r2" />
 											<label class="button-kios" for="r2">
 												Distributor
@@ -54,29 +54,29 @@
 									</div>
 
 								</span>
-								<div class="mb-2.5 text-left text-sm">Nama Perusahaan </div>
+								<div class="mb-1 mt-5 text-left text-sm">Nama Perusahaan </div>
 								<input
 										type="text"
-										class="form-control block w-full px-3 py-3 text-sm font-normal rounded-md text-gray-700 bg-gray-100  border border-solid border-gray-100 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-padi focus:outline-none"
+										class="form-control block w-full px-3 py-2 text-sm font-normal rounded-md text-gray-700 bg-gray-100  border border-solid border-gray-100 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-padi focus:outline-none"
 										id="exampleFormControlInput1"
 										placeholder="Username"
 								/>
-								<div class="mb-2.5 mt-5 text-left text-sm">NPWP Perusahaan </div>
+								<div class="mb-1 mt-2 text-left text-sm">NPWP Perusahaan </div>
 								<input
 										type="text"
 										class="form-control
-										block w-full px-3 py-3
+										block w-full px-3 py-2
 										text-sm font-normal
 										rounded-md text-gray-700 bg-gray-100  border border-solid border-gray-100 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-padi focus:outline-none"
 										id="exampleFormControlInput1"
 										placeholder="Username"
 								/>
-								<div class="mb-2.5 mt-5 text-left text-sm">Jenis Usaha </div>
+								<div class="mb-1 mt-2 text-left text-sm">Jenis Usaha </div>
 								<select class="form-select appearance-none
 									      block
 									      w-full
 									      px-3
-									      py-3
+									      py-2
 									      text-sm
 									      font-normal
 									      text-gray-500 bg-gray-100 bg-clip-padding bg-no-repeat
@@ -96,34 +96,34 @@
 								
 							</fieldset>
 							<fieldset>
-								<div class="mb-2.5 text-left text-sm">Nama Pemilik </div>
+								<div class="mb-1 text-left text-sm">Nama Pemilik </div>
 								<input
 										type="text"
-										class="form-control block w-full px-3 py-3 text-sm font-normal rounded-md text-gray-700 bg-gray-100  border border-solid border-gray-100 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-padi focus:outline-none"
+										class="form-control block w-full px-3 py-2 text-sm font-normal rounded-md text-gray-700 bg-gray-100  border border-solid border-gray-100 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-padi focus:outline-none"
 										id="exampleFormControlInput1"
 										placeholder="Username"
 								/>
-								<div class="mb-2.5 mt-5 text-left text-sm">No. Whatsapp </div>
+								<div class="mb-1 mt-3 text-left text-sm">No. Whatsapp </div>
 								<input
 										type="text"
 										class="form-control
-										block w-full px-3 py-3
+										block w-full px-3 py-2
 										text-sm font-normal
 										rounded-md text-gray-700 bg-gray-100  border border-solid border-gray-100 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-padi focus:outline-none"
 										id="exampleFormControlInput1"
 										placeholder="Username"
 								/>
-								<div class="mb-2.5 mt-5 text-left text-sm">Email </div>
+								<div class="mb-1 mt-3 text-left text-sm">Email </div>
 								<input
 										type="text"
 										class="form-control
-										block w-full px-3 py-3
+										block w-full px-3 py-2
 										text-sm font-normal
 										rounded-md text-gray-700 bg-gray-100  border border-solid border-gray-100 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-padi focus:outline-none"
 										id="exampleFormControlInput1"
 										placeholder="Username"
 								/>
-								<div class="mb-2.5 mt-5 text-left text-sm">Alamat Usaha </div>
+								<div class="mb-1 mt-3 text-left text-sm">Alamat Usaha </div>
 								<textarea class="
 									      block
 									      w-full
@@ -141,14 +141,16 @@
 							
 							</fieldset>
 							<fieldset>
-								<div class="mb-2.5 text-center text-sm">
-									<div class="text-base">
+								<div class="mb-1 text-center px-10">
+									<div class="">
 										<h2 class="text-lg font-semibold mb-5">Berhasil Mendaftarkan Usaha</h2>
-										<p class="mb-5"><span class="font-semibold">Hai Moh.Riansyah,</span> terima kasih telah mendaftarkan usaha Anda di Padiplace.</p>
-										<p class="mb-2.5">Mohon tunggu ya, kami akan segera menghubungi Anda melalui email atau WhatsApp.</p>
+										<p class="mb-3 text-sm"><span class="font-semibold">Hai Moh.Riansyah,</span> terima kasih telah mendaftarkan usaha Anda di Padiplace.</p>
+										<p class="mb-1 text-sm">Mohon tunggu ya, kami akan segera menghubungi Anda melalui email atau WhatsApp.</p>
 									</div>
 								</div>
-								<input type="submit" name="submit" class="submit action-button rounded-full py-2 px-4 text-white font-semibold text-md mt-6 text-center  bg-yellow-500 w-full" value="Selesai" />
+								<div class="px-20">
+									<input type="submit" name="submit" class="submit action-button rounded-full py-2 px-4 text-white font-semibold text-md mt-6 text-center  bg-yellow-500 w-full" value="Selesai" />
+								</div>
 							</fieldset>
 						</form>
 					</div>
@@ -186,7 +188,7 @@
 				//1. scale current_fs down to 80%
 				scale = 1 - (1 - now) * 0.2;
 				//2. bring next_fs from the right(50%)
-				left = (now * 50)+"%";
+				left = (now * 30)+"%";
 				//3. increase opacity of next_fs to 1 as it moves in
 				opacity = 1 - now;
 				current_fs.css({

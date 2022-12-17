@@ -31080,7 +31080,7 @@ html, body {
 /* form */
 
 #msform {
-  margin: 50px auto;
+  margin: 20px auto;
   text-align: center;
   position: relative;
 }
@@ -31090,10 +31090,10 @@ html, body {
   border: 0 none;
   border-radius: 20px;
   box-shadow: 0px 4px 8px rgba(161, 160, 190, 0.13);
-  padding: 20px 30px;
+  padding: 20px 20px;
   box-sizing: border-box;
-  width: 80%;
-  margin: 0 10%;
+  width: 100%;
+  margin: 0 auto;
   /*stacking fieldsets above each other*/
   position: relative;
 }
@@ -31138,7 +31138,7 @@ inputs
 /*progressbar*/
 
 #progressbar {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   overflow: hidden;
   /*CSS counters to number the steps*/
   counter-reset: step;
@@ -31157,10 +31157,10 @@ inputs
 #progressbar li:before {
   content: counter(step);
   counter-increment: step;
-  width: 35px;
-  line-height: 35px;
+  width: 28px;
+  line-height: 28px;
   display: block;
-  font-size: 24px;
+  font-size: 14px;
   font-weight: bold;
   color: #fff;
   background: #B4B3C7;
@@ -31200,15 +31200,18 @@ inputs
 }
 
 .button-kios{
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
   display: inline-block;
   cursor: pointer;
-  width: 162px;
+  width: 120px;
   background: #FFFFFF;
   border: 1px solid #F5F5F9;
   box-shadow: 0px 4px 8px rgba(161, 160, 190, 0.13);
   border-radius: 10px;
-  height: 50px;
+  height: 45px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 14px;
 }
 
 #cekbok input[type=checkbox]{
@@ -31216,15 +31219,15 @@ inputs
 }
 
 #cekbok input[type=checkbox]:checked + .button-kios{
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
   display: inline-block;
   cursor: pointer;
-  width: 162px;
+  /* width: 162px; */
   background: #FFFFFF;
   border: 1px solid #FBBE34;
   box-shadow: 0px 8px 12px rgba(161, 160, 190, 0.25);
   border-radius: 10px;
-  height: 50px;
+  height: 45px;
 }
 
 tr.border-top-tr td {
