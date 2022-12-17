@@ -31029,6 +31029,16 @@ html, body {
   height: 100%;
 }
 
+.bg-login{
+  position: fixed;
+  background-image: url("/assets/img/bg-login.png");
+  background-position: bottom ;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
 .card-dashboard {
   padding: 0;
   overflow: hidden;

@@ -327,7 +327,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="shadow-padi bg-white rounded-xl col-span-2 card-dashboard-panjang">
+						<div class="shadow-padi bg-white rounded-xl col-span-2 ">
 							<div class="grafik" id="grafik">
 								<div class=" flex items-center justify-center px-5 py-5">
 									<div class="w-full" x-data="{chartData:chartData()}" x-init="chartData.fetch()">
@@ -457,6 +457,137 @@
 				</div>
 			</div>
 		</section>
+
+		<!-- modal  konfirmasi -->
+		<div class="relative z-10 hidden "  aria-labelledby="modal-title" role="dialog" aria-modal="true">
+			<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+		
+			<div class="fixed inset-0 z-10 overflow-y-auto">
+				<div class="flex min-h-full items-end justify-center p-0 text-center sm:items-center sm:p-0">
+
+					<div class="relative w-3/12 transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all ">
+						<div class="px-8">
+
+							<div class="py-5 px text-center">
+								
+								<div class="w-full py-5">
+									<img src="/assets/img/dashboard-after.png" class="m-auto" alt="">
+								</div>
+								<div class=" font-semibold text-xl py-2">
+									Terima kasih telah menjadi bagian dari Padiplace!!
+								</div>
+								<div class="text-sm py-2">
+									Saat ini Anda sudah terdaftar sebagai mitra padiplace, nikmati kemudahannya dan tingkatkan penjualan Anda
+								</div>
+							</div>
+
+						</div>
+						<div class="px-4  pb-10 w-full pb-5 flex justify-center">
+							<div class="w-2/3 text-center">
+								<button type="button" class="py-3 font-semibold w-full rounded-full text-white bg-yellow-400">Selanjutnya</button>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="relative z-10 hidden  "  aria-labelledby="modal-title" role="dialog" aria-modal="true">
+			<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+		
+			<div class="fixed inset-0 z-10 overflow-y-auto">
+				<div class="flex min-h-full items-end justify-center p-0 text-center sm:items-center sm:p-0">
+
+					<div class="relative w-3/12 transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all ">
+						<div class="px-8 py-8">
+
+							<div class=" px text-center">
+								<div class=" font-semibold text-xl mb-3">
+									Satu lagi, anda sudah bisa berjualan
+								</div>
+							</div>
+
+							<div>
+								<div>
+									<div class="text-left text-sm font-medium my-2">
+										Data penarikan dana 
+									</div>
+									
+									<div class="mt-5">
+										<label for="countries" class="block mb-2 text-xs text-gray-900 dark:text-white">Nama Bank</label>
+										<select id="countries" class="bg-gray-50  text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+											<option selected>Choose a country</option>
+											<option value="US">United States</option>
+											<option value="CA">Canada</option>
+											<option value="FR">France</option>
+											<option value="DE">Germany</option>
+										</select>
+									</div>
+									<div class="mt-5">
+										<label for="countries" class="block mb-2 text-xs text-gray-900 dark:text-white">Jenis Rekening</label>
+										<input id="countries" class="bg-gray-50  text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+										</input>
+									</div>
+									<div class="mt-5">
+										<label for="countries" class="block mb-2 text-xs text-gray-900 dark:text-white">Nama Pemilik Rekening</label>
+										<input id="countries" class="bg-gray-50  text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+										</input>
+									</div>
+									<div class="text-xs mt-2 bg-yellow-100  p-4 rounded-xl">
+										<span>
+											Nomor Rekening Anda akan digunakan untuk penarikan dana, pastikan nomor rekening Anda sesuai ya.
+										</span>
+									</div>
+									
+								</div>
+							</div>
+
+						</div>
+						<div class="px-4 w-full Z pb-10 flex justify-center gap-6">
+							<div class="w-2/3 text-center">
+								<button type="button" class="py-3 font-semibold w-full rounded-full text-white bg-yellow-400">Selesai</button>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="relative z-10 hidden "  aria-labelledby="modal-title" role="dialog" aria-modal="true">
+			<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+		
+			<div class="fixed inset-0 z-10 overflow-y-auto">
+				<div class="flex min-h-full items-end justify-center p-0 text-center sm:items-center sm:p-0">
+
+					<div class="relative w-3/12 transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all ">
+						<div class="px-8 py-5">
+
+							<div class="  text-center">
+								<div class=" font-semibold text-xl mb-3">
+									Apahak data anda sudah benar?
+								</div>
+							</div>
+
+						</div>
+						<div class="px-10 w-full Z pb-5 flex justify-center gap-6">
+							<div class="w-1/2 text-center">
+								<button type="button" class="py-3 font-semibold w-full rounded-full text-green-500 bg-white border border-green-500">Belum</button>
+							</div>
+							<div class="w-1/2 text-center">
+								<button type="button" class="py-3 font-semibold w-full rounded-full text-white bg-yellow-400">Selesai</button>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+
+		</div>
+
 	</div>
 	
 </main>
