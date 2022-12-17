@@ -31051,6 +31051,17 @@ html, body {
   max-height: 130px;
 }
 
+.card-dashboard-no-bg {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  background-position: bottom ;
+  background-size: 110%;
+  /*background-position-y: .5rem;*/
+  background-repeat: no-repeat;
+  max-height: 130px;
+}
+
 .card-dashboard-biru {
   padding: 0;
   overflow: hidden;
