@@ -8,6 +8,29 @@
 	<link href="../assets/img/apple-icon.png" rel="apple-touch-icon" sizes="76x76"/>
 	<title>PadiPlace dev</title>
 	<link href="../../assets/css/style.css" rel="stylesheet" type="text/css">
+	<style>
+		.isHidden {
+			display: none; /* hide radio buttons */
+		}
+
+		.label {
+			font-size: 14px;
+			display: inline-block;
+			background-color: #fff;
+			border-radius: 10px;
+			border: 1px solid #F5F5F9;
+			box-shadow: 0px 4px 8px rgba(161, 160, 190, 0.13);
+			width: 125px;
+			height: 45px;
+			padding: 10px;
+			margin: 0 auto;
+			cursor: pointer;
+		}
+
+		.radio:checked + .label {   /* target next sibling (+) label */
+			border-color: rgba(251, 191, 36, var(--tw-border-opacity));
+		}
+	</style>
 	
 </head>
 
@@ -37,18 +60,18 @@
 							<!-- fieldsets -->
 							<fieldset>
 								<span class=" w-full">
-									
+
 									<div id="cekbok" class="flex justify-between w-full">
 										<div class="">
-											<input type="checkbox" name="rGroup" value="1" id="r1" checked="checked" />
-											<label class="button-kios" for="r1">
-												Kios
+											<input id="radio_1" class="radio isHidden" name="radio_a" type="radio">
+											<label for="radio_1" class="label">
+												Distributor
 											</label>
 										</div>
 										<div class="">
-											<input type="checkbox" name="rGroup" value="2" id="r2" />
-											<label class="button-kios" for="r2">
-												Distributor
+											<input id="radio_2" class="radio isHidden" name="radio_a" type="radio">
+											<label for="radio_2" class="label">
+												Kios
 											</label>
 										</div>
 									</div>
