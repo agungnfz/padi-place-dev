@@ -19,6 +19,7 @@
     "@fortawesome/fontawesome-free": "^5.15.1",
     "alpinejs": "^2.8.0",
     "tailwindcss": "^2.0.3",
+    "tw-elements": "^1.0.0-alpha13",
     "yarn": "^1.22.19"
   },
   "devDependencies": {
