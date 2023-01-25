@@ -1,7 +1,7 @@
 
 module.exports = {
   purge: {},
-  content: ['./src/**/*.{html,js}', './node_modules/tw-elements/dist/js/**/*.js'],
+  content: [],
   theme: {
     extend: {
       width: {
@@ -83,6 +83,5 @@ module.exports = {
       strategy: 'base',
       strategy: 'class',
     }),
-    require('tw-elements/dist/plugin')
   ],
 };
